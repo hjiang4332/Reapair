@@ -16,12 +16,15 @@ public class PlayerController : MonoBehaviour
     //attack
     private float timeLeftTillAttack;
     public float resetAttackCooldown;
-
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
-    public float attackRangeX;
-    public float attackRangeY;
+    //public float attackRangeX;
+    //public float attackRangeY;
+
+    //scoring
+    private float p1Score = 0;
+    private float p2Score = 0;
 
     void Start()
     {
@@ -46,6 +49,8 @@ public class PlayerController : MonoBehaviour
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         Destroy(enemiesToDamage[i].gameObject);
+                        p1Score++;
+                        Debug.Log(p1Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
                 }
@@ -74,6 +79,8 @@ public class PlayerController : MonoBehaviour
                     for( int i=0; i<enemiesToDamage.Length; i++)
                     {
                         Destroy(enemiesToDamage[i]);
+                        p2Score++;
+                        Debug.Log(p2Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
                 }
@@ -110,7 +117,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(attackPos.position, attackRange);
-        Gizmos.DrawWireCube(attackPos.position, new Vector2(attackRangeX, attackRangeY));
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        //Gizmos.DrawWireCube(attackPos.position, new Vector2(attackRangeX, attackRangeY));
     }
 }
