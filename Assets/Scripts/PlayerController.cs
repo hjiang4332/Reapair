@@ -69,10 +69,7 @@ public class PlayerController : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal2");
             movement.y = Input.GetAxisRaw("Vertical2");
             animator.SetFloat("speed", Mathf.Abs(movement.x));
-
-            p2IsAttacking = animator.GetCurrentAnimatorStateInfo(0).isAttacking;
-
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("reapier_attack"))
+            if (animator.GetBool("isAttacking") == true)
             {
                 Debug.Log("infunction");
                 Debug.Log(this.animator.GetCurrentAnimatorStateInfo(0).IsName("reaper_attack"));
