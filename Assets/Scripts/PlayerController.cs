@@ -11,17 +11,20 @@ public class PlayerController : MonoBehaviour
     //movement
     private float moveSpeed = 5f;
     private Vector2 movement;
-    //private bool faceR = true;
+    private bool faceR = true;
 
     //attack
     private float timeLeftTillAttack;
     public float resetAttackCooldown;
-
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
-    public float attackRangeX;
-    public float attackRangeY;
+    //public float attackRangeX;
+    //public float attackRangeY;
+
+    //scoring
+    private float p1Score = 0;
+    private float p2Score = 0;
 
     void Start()
     {
@@ -39,20 +42,25 @@ public class PlayerController : MonoBehaviour
 
             if (timeLeftTillAttack <= 0)
             {
-                if (Input.GetButtonDown("Attack"))
+                if (Input.GetButtonDown("Attack") && !animator.GetBool("isAttacking"))
                 {
                     animator.SetBool("isAttacking", true);
                     Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         Destroy(enemiesToDamage[i].gameObject);
+                        p1Score++;
+                        Debug.Log(p1Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
+                }
+                else if (Input.GetButtonDown("Attack") && animator.GetBool("isAttacking"))
+                {
+                    animator.SetBool("isAttacking", false);
                 }
             }
             else
             {
-                animator.SetBool("isAttacking", false);
                 timeLeftTillAttack -= Time.deltaTime;
             }
         }
@@ -64,23 +72,41 @@ public class PlayerController : MonoBehaviour
 
             if (timeLeftTillAttack <= 0) //attack
             {
-                if (Input.GetButtonDown("Attack2"))
+                if (Input.GetButtonDown("Attack2") && !animator.GetBool("isAttacking"))
                 {
                     animator.SetBool("isAttacking", true);
                     Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                     for( int i=0; i<enemiesToDamage.Length; i++)
                     {
                         Destroy(enemiesToDamage[i]);
+                        p2Score++;
+                        Debug.Log(p2Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
+                }
+                else if (Input.GetButtonDown("Attack2") && animator.GetBool("isAttacking"))
+                {
+                    animator.SetBool("isAttacking", false);
                 }
             }
             else
             {
-                animator.SetBool("isAttacking", false);
                 timeLeftTillAttack -= Time.deltaTime;
             }
         }
+
+        if (faceR == false && movement.x > 0 || faceR == true && movement.x < 0)
+        {
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        faceR = !faceR;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 
     void FixedUpdate()
@@ -91,7 +117,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(attackPos.position, attackRange);
-        Gizmos.DrawWireCube(attackPos.position, new Vector2(attackRangeX, attackRangeY));
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        //Gizmos.DrawWireCube(attackPos.position, new Vector2(attackRangeX, attackRangeY));
     }
 }

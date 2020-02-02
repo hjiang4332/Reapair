@@ -13,6 +13,18 @@ public class NPCMovementForce : MonoBehaviour
     private Vector2 movement;
     private float timeLeftTillMove;
 
+    //heart attack
+    private float timer = 1f;
+    private float chanceToDie = .2f;
+    private float diceRoll;
+    private bool isDead = false;
+    bool waitForTime = false;
+    bool waitForTime2 = false;
+
+    //spawn soul
+    public GameObject soul;
+
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -22,7 +34,12 @@ public class NPCMovementForce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
         handleMovement();
+        if(tag == "NPC")    //random death
+        {
+            handleHeartAttackDeath();
+        }
     }
 
     void FixedUpdate()
@@ -46,6 +63,42 @@ public class NPCMovementForce : MonoBehaviour
             }
             timeLeftTillMove += accelerationTime;
         }
+    }
+
+    void handleHeartAttackDeath()
+    {
+        int time = (int)timer;
+        //Every 3 seconds, increase chance to die or die
+        if (time % 3 == 0 && !waitForTime && isDead == false)
+        {
+            diceRoll = Random.Range(0, 1);
+            if(diceRoll <= chanceToDie)
+            {
+                isDead = true;
+                WaitForSoulSpawn();
+            }
+            if (chanceToDie <= 1)
+            {
+                chanceToDie += .2f;
+            }
+        }
+        StartCoroutine(WaitForNext());
+    }
+
+    IEnumerator WaitForNext()
+    {
+        waitForTime = true;
+        yield return new WaitForSeconds(1f);
+        waitForTime = false;
+    }
+
+    IEnumerator WaitForSoulSpawn()
+    {
+        waitForTime2 = true;
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
+        waitForTime2 = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

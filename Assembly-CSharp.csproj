@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\NPCMovementForce.cs" />
      <Compile Include="Assets\Scripts\NPCMovementTranslate.cs" />
      <Compile Include="Assets\Scripts\NPCSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlayAudioScript.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/namel/Documents/GitHub/Reapair/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

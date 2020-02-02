@@ -12,7 +12,8 @@ public class NPCSpawner : MonoBehaviour
     private float timer = 1f;
     private int maxTimeToSpawn = 10;
     private int numClones = 0;
-    private int maxClones = 10;
+    private int maxClones = 30;
+    private bool spawnCollision = false;
     
     //Coroutine
     bool waitForTime = false;
@@ -49,8 +50,16 @@ public class NPCSpawner : MonoBehaviour
         int NPCRandomNum = UnityEngine.Random.Range(0, npc.Length);
         int timeBetweenSpawns = UnityEngine.Random.Range(0, maxTimeToSpawn);
 
-        RaycastHit2D hit = Physics2D.Raycast(spawners[spawnerRandomNum].transform.position, Vector2.zero);
-        if (hit.collider == null && numClones < maxClones)   //check if spawn point has anyone on it. 
+        if (spawnCollision == true)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(spawners[spawnerRandomNum].transform.position, Vector2.zero);
+            if (hit.collider == null && numClones < maxClones)   //check if spawn point has anyone on it. 
+            {
+                numClones++;
+                GameObject enemy = Instantiate(npc[NPCRandomNum], spawners[spawnerRandomNum].transform.position, Quaternion.identity) as GameObject;
+            }
+        }
+        else if (spawnCollision == false && numClones < maxClones)
         {
             numClones++;
             GameObject enemy = Instantiate(npc[NPCRandomNum], spawners[spawnerRandomNum].transform.position, Quaternion.identity) as GameObject;
