@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //components 
     private Rigidbody2D rb2d;
     private Animator animator;   //let PlayerAttack(child) access but not other classes
+    private bool p2IsAttacking;
     
     //movement
     private float moveSpeed = 5f;
@@ -39,6 +40,9 @@ public class PlayerController : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal");
             movement.y = Input.GetAxisRaw("Vertical");
             animator.SetFloat("speed", Mathf.Abs(movement.x));
+            if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("reaper_attack")){
+                Invoke("setAttackFalse", .2f);
+            }
 
             if (timeLeftTillAttack <= 0)
             {
@@ -54,10 +58,6 @@ public class PlayerController : MonoBehaviour
                     }
                     timeLeftTillAttack = resetAttackCooldown;
                 }
-                else if (Input.GetButtonDown("Attack") && animator.GetBool("isAttacking"))
-                {
-                    animator.SetBool("isAttacking", false);
-                }
             }
             else
             {
@@ -69,6 +69,15 @@ public class PlayerController : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal2");
             movement.y = Input.GetAxisRaw("Vertical2");
             animator.SetFloat("speed", Mathf.Abs(movement.x));
+
+            p2IsAttacking = animator.GetCurrentAnimatorStateInfo(0).isAttacking;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("reapier_attack"))
+            {
+                Debug.Log("infunction");
+                Debug.Log(this.animator.GetCurrentAnimatorStateInfo(0).IsName("reaper_attack"));
+                Invoke("setAttackFalse", .2f);
+            }
 
             if (timeLeftTillAttack <= 0) //attack
             {
@@ -83,10 +92,6 @@ public class PlayerController : MonoBehaviour
                         Debug.Log(p2Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
-                }
-                else if (Input.GetButtonDown("Attack2") && animator.GetBool("isAttacking"))
-                {
-                    animator.SetBool("isAttacking", false);
                 }
             }
             else
@@ -107,6 +112,11 @@ public class PlayerController : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    void setAttackFalse()
+    {
+        animator.SetBool("isAttacking", false);
     }
 
     void FixedUpdate()
