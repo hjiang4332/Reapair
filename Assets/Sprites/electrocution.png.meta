@@ -1,7 +1,100 @@
 fileFormatVersion: 2
 guid: db207a69bf423cb479a8922cdf6de735
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5515978387701566445
+    second: electrocution_0
+  - first:
+      213: -714922273789541491
+    second: electrocution_1
+  - first:
+      213: 16870677368535508
+    second: electrocution_2
+  - first:
+      213: 7108664367630502554
+    second: electrocution_3
+  - first:
+      213: 2979456001884579461
+    second: electrocution_4
+  - first:
+      213: -7830083903467346718
+    second: electrocution_5
+  - first:
+      213: 3729043239323010188
+    second: electrocution_6
+  - first:
+      213: -6804037762980532046
+    second: electrocution_7
+  - first:
+      213: 8009131681185916705
+    second: electrocution_8
+  - first:
+      213: -118838105625523500
+    second: electrocution_9
+  - first:
+      213: 2533786097792682929
+    second: electrocution_10
+  - first:
+      213: 2641243275078150087
+    second: electrocution_11
+  - first:
+      213: 4904867597992753921
+    second: electrocution_12
+  - first:
+      213: -1604198088869137239
+    second: electrocution_13
+  - first:
+      213: -5025414434221513390
+    second: electrocution_14
+  - first:
+      213: 3993225025202850263
+    second: electrocution_15
+  - first:
+      213: 9145666231796005395
+    second: electrocution_16
+  - first:
+      213: 2256605816009284033
+    second: electrocution_17
+  - first:
+      213: -2042821902042930907
+    second: electrocution_18
+  - first:
+      213: 6669823197295537572
+    second: electrocution_19
+  - first:
+      213: 7427905948539319160
+    second: electrocution_20
+  - first:
+      213: -2991520226357606698
+    second: electrocution_21
+  - first:
+      213: 1351283202579333618
+    second: electrocution_22
+  - first:
+      213: -2475589679592949096
+    second: electrocution_23
+  - first:
+      213: -8025539863060089698
+    second: electrocution_24
+  - first:
+      213: -7684310505800941162
+    second: electrocution_25
+  - first:
+      213: -7508965152604830415
+    second: electrocution_26
+  - first:
+      213: -1284595981638834687
+    second: electrocution_27
+  - first:
+      213: 3370125470023388286
+    second: electrocution_28
+  - first:
+      213: -8593863403380759436
+    second: electrocution_29
+  - first:
+      213: 2981174124933541335
+    second: electrocution_30
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -41,12 +134,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,9 +165,348 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: electrocution_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2092
+        width: 830
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb0fa36e11bc8c40800000000000000
+      internalID: 5515978387701566445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_1
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 2092
+        width: 842
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8382c4daf51416f0800000000000000
+      internalID: -714922273789541491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_2
+      rect:
+        serializedVersion: 2
+        x: 1996
+        y: 2092
+        width: 871
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9fbabaacfeb3000800000000000000
+      internalID: 16870677368535508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_3
+      rect:
+        serializedVersion: 2
+        x: 2995
+        y: 2092
+        width: 836
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ac71c349c07a260800000000000000
+      internalID: 7108664367630502554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_9
+      rect:
+        serializedVersion: 2
+        x: 3941
+        y: 2092
+        width: 836
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da09606f5dc95ef0800000000000000
+      internalID: -118838105625523500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_10
+      rect:
+        serializedVersion: 2
+        x: 4892
+        y: 2092
+        width: 838
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bb81c70801d92320800000000000000
+      internalID: 2533786097792682929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_11
+      rect:
+        serializedVersion: 2
+        x: 5849
+        y: 2098
+        width: 838
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c72c68c3c497a420800000000000000
+      internalID: 2641243275078150087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_12
+      rect:
+        serializedVersion: 2
+        x: 6776
+        y: 2098
+        width: 835
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b7ea0e717911440800000000000000
+      internalID: 4904867597992753921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_14
+      rect:
+        serializedVersion: 2
+        x: 7709
+        y: 2092
+        width: 836
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2552b17a234224ab0800000000000000
+      internalID: -5025414434221513390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_17
+      rect:
+        serializedVersion: 2
+        x: 8684
+        y: 2092
+        width: 828
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9505d9803115f10800000000000000
+      internalID: 2256605816009284033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_19
+      rect:
+        serializedVersion: 2
+        x: 9621
+        y: 2092
+        width: 830
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ade5751cd8ff8c50800000000000000
+      internalID: 6669823197295537572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_21
+      rect:
+        serializedVersion: 2
+        x: 10535
+        y: 2092
+        width: 835
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d60f81343cfb76d0800000000000000
+      internalID: -2991520226357606698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 941
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f181b0d9e8b0c210800000000000000
+      internalID: 1351283202579333618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_26
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 0
+        width: 836
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135c3385afbcac790800000000000000
+      internalID: -7508965152604830415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: electrocution_30
+      rect:
+        serializedVersion: 2
+        x: 1991
+        y: 0
+        width: 836
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ddef3a52124f5920800000000000000
+      internalID: 2981174124933541335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
