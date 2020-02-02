@@ -19,11 +19,9 @@ public class NPCMovementForce : MonoBehaviour
     private float diceRoll;
     private bool isDead = false;
     bool waitForTime = false;
-    //bool waitForTime2 = false;
 
     //spawn soul
     public GameObject soul;
-
 
     void Start()
     {
@@ -74,11 +72,8 @@ public class NPCMovementForce : MonoBehaviour
             diceRoll = Random.Range(0, 1);
             if(diceRoll <= chanceToDie)
             {
-                //WaitForSoulSpawn();
-            }
-            if (chanceToDie <= 1)
-            {
-                chanceToDie += .2f;
+                Destroy(gameObject);
+                GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
             }
         }
         StartCoroutine(WaitForNext());
@@ -91,21 +86,21 @@ public class NPCMovementForce : MonoBehaviour
         waitForTime = false;
     }
 
-    /*IEnumerator WaitForSoulSpawn()
-    {
-        waitForTime2 = true;
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
-        GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
-        waitForTime2 = false;
-    }*/
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hazard"))
+        if (tag == "NPC" && other.CompareTag("Hazard"))
         {
-            //Debug.Log("Touched");
-            //animator.SetBool("isDead", true);
+            //animator.SetBool("isDead", true)
+            //play sound
+            Destroy(gameObject);
+            GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
+
+        }
+        if (tag == "NPC" && other.CompareTag("Car"))
+        {
+            //play sound
+            Destroy(gameObject);
+            GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
         }
     }
 }

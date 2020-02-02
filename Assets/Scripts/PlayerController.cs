@@ -12,9 +12,9 @@ public class PlayerController : MonoBehaviour
     //movement
     private float moveSpeed = 5f;
     private Vector2 movement;
-    private bool faceR = true;
 
     //attack
+    private bool faceR = true;
     private float timeLeftTillAttack;
     public float resetAttackCooldown;
     public Transform attackPos;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     //public float attackRangeY;
 
     //scoring
+    private float timer = 1f;
     private float p1Score = 0;
     private float p2Score = 0;
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        timer += Time.deltaTime;
         if (name == "Player1")
         {
             movement.x = Input.GetAxisRaw("Horizontal");
@@ -71,8 +73,6 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("speed", Mathf.Abs(movement.x));
             if (animator.GetBool("isAttacking") == true)
             {
-                Debug.Log("infunction");
-                Debug.Log(this.animator.GetCurrentAnimatorStateInfo(0).IsName("reaper_attack"));
                 Invoke("setAttackFalse", .2f);
             }
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
                     Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                     for( int i=0; i<enemiesToDamage.Length; i++)
                     {
-                        Destroy(enemiesToDamage[i]);
+                        Destroy(enemiesToDamage[i].gameObject);
                         p2Score++;
                         Debug.Log(p2Score);
                     }
@@ -97,10 +97,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (faceR == false && movement.x > 0 || faceR == true && movement.x < 0)
+        if(faceR == true && movement.x < 0 || faceR == false && movement.x > 0)
         {
             Flip();
         }
+
+        //if(timer > )
     }
 
     void Flip()

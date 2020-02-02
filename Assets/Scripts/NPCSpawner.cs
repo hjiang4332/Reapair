@@ -12,7 +12,7 @@ public class NPCSpawner : MonoBehaviour
     private float timer = 1f;
     private int maxTimeToSpawn = 10;
     private int numClones = 0;
-    private int maxClones = 30;
+    private int maxClones = 1000;
     private bool spawnCollision = false;
     
     //Coroutine
