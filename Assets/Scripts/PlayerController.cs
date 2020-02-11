@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        StartCoroutine(GameplayTimer());
     }
 
     void Update()
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour
                     {
                         Destroy(enemiesToDamage[i].gameObject);
                         p1Score++;
-                        Debug.Log(p1Score);
+                        //Debug.Log(p1Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
                 }
@@ -86,7 +88,7 @@ public class PlayerController : MonoBehaviour
                     {
                         Destroy(enemiesToDamage[i].gameObject);
                         p2Score++;
-                        Debug.Log(p2Score);
+                        //Debug.Log(p2Score);
                     }
                     timeLeftTillAttack = resetAttackCooldown;
                 }
@@ -101,8 +103,24 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+    }
 
-        //if(timer > )
+    IEnumerator GameplayTimer()
+    {
+        yield return new WaitForSeconds(90);
+        checkWinner();
+    }
+
+    void checkWinner()
+    {
+        if (p1Score > p2Score)
+        {
+            SceneManager.LoadScene("ReaperWin");
+        }
+        if (p2Score > p1Score)
+        {
+            SceneManager.LoadScene("ReapairWin");
+        }
     }
 
     void Flip()

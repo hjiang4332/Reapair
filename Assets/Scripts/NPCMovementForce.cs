@@ -23,10 +23,15 @@ public class NPCMovementForce : MonoBehaviour
     //spawn soul
     public GameObject soul;
 
+    private AudioSource audio;
+
+    //sounds
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -66,8 +71,8 @@ public class NPCMovementForce : MonoBehaviour
     void handleHeartAttackDeath()
     {
         int time = (int)timer;
-        //Every 3 seconds, increase chance to die or die
-        if (time % 3 == 0 && !waitForTime && isDead == false)
+        //Every 5 seconds, increase chance to die or die
+        if (time % 5 == 0 && !waitForTime && isDead == false)
         {
             diceRoll = Random.Range(0, 1);
             if(diceRoll <= chanceToDie)
@@ -91,7 +96,7 @@ public class NPCMovementForce : MonoBehaviour
         if (tag == "NPC" && other.CompareTag("Hazard"))
         {
             //animator.SetBool("isDead", true)
-            //play sound
+            audio.Play();
             Destroy(gameObject);
             GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
 

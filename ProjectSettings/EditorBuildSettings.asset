@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c8462960a0c964148b8132a52598cb3c
   - enabled: 1
-    path: Assets/Scenes/WinnerScreen.unity
-    guid: 9c2da3d8965e20040b29ca10f551881b
+    path: Assets/Scenes/Game.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 91657c56715cfb045b43fb9625b78ecf
+  - enabled: 1
+    path: Assets/Scenes/ReaperWin.unity
+    guid: fa871099f6b14b5418d00f994307d5e5
+  - enabled: 1
+    path: Assets/Scenes/ReapairWin.unity
+    guid: d27de822e5f3c7244aa1093f827280be
   m_configObjects: {}
