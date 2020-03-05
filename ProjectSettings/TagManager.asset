@@ -8,6 +8,7 @@ TagManager:
   - Hazard
   - NPC
   - Soul
+  - Car
   layers:
   - Default
   - TransparentFX

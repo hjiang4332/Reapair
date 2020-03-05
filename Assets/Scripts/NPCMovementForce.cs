@@ -19,16 +19,19 @@ public class NPCMovementForce : MonoBehaviour
     private float diceRoll;
     private bool isDead = false;
     bool waitForTime = false;
-    //bool waitForTime2 = false;
 
     //spawn soul
     public GameObject soul;
 
+    private AudioSource audio;
+
+    //sounds
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -68,17 +71,14 @@ public class NPCMovementForce : MonoBehaviour
     void handleHeartAttackDeath()
     {
         int time = (int)timer;
-        //Every 3 seconds, increase chance to die or die
-        if (time % 3 == 0 && !waitForTime && isDead == false)
+        //Every 5 seconds, increase chance to die or die
+        if (time % 5 == 0 && !waitForTime && isDead == false)
         {
             diceRoll = Random.Range(0, 1);
             if(diceRoll <= chanceToDie)
             {
-                //WaitForSoulSpawn();
-            }
-            if (chanceToDie <= 1)
-            {
-                chanceToDie += .2f;
+                Destroy(gameObject);
+                GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
             }
         }
         StartCoroutine(WaitForNext());
@@ -91,21 +91,21 @@ public class NPCMovementForce : MonoBehaviour
         waitForTime = false;
     }
 
-    /*IEnumerator WaitForSoulSpawn()
-    {
-        waitForTime2 = true;
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
-        GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
-        waitForTime2 = false;
-    }*/
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hazard"))
+        if (tag == "NPC" && other.CompareTag("Hazard"))
         {
-            //Debug.Log("Touched");
-            //animator.SetBool("isDead", true);
+            //animator.SetBool("isDead", true)
+            audio.Play();
+            Destroy(gameObject);
+            GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
+
+        }
+        if (tag == "NPC" && other.CompareTag("Car"))
+        {
+            //play sound
+            Destroy(gameObject);
+            GameObject enemy = Instantiate(soul, transform.position, Quaternion.identity) as GameObject;
         }
     }
 }

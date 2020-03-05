@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationTime: 0.5
   maxSpeed: 1
+  soul: {fileID: 5709222698358979640, guid: 64ad5cf267aee7d46889fb2543b31773, type: 3}
 --- !u!50 &2889442865744189466
 Rigidbody2D:
   serializedVersion: 4
